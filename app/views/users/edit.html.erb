@@ -10,6 +10,12 @@
     </p><p>
         <%= f.label :bio %>
         <%= f.text_area :bio %>
+    </p><p>
+        <%= f.label :theme %>
+        <%= f.select :theme, options_for_select(["dark", "light"])
+    </p><p>
+        Maximum comment depth displayed:
+        <%= f.select :comment_depth, options_for_select([3..10]) %>
     </p>
     <%= f.submit "Save Settings" %>
 <% end %>
