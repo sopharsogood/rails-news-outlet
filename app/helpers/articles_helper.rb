@@ -16,7 +16,7 @@ module ArticlesHelper
     end
 
     def author_byline(article)
-        "by " + link_to article.author.name, article.author
+        "by #{link_to article.author.name, article.author}"
     end
         
 end
