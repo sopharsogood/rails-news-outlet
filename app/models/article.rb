@@ -22,4 +22,8 @@ class Article < ApplicationRecord
     def author_bio
         self.author.bio
     end
+
+    def top_level_comments
+        self.comments.where(parent_id: nil)
+    end
 end
