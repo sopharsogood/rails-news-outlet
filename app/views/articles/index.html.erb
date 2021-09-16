@@ -3,4 +3,5 @@
     <%= open_h_tag(index) %>
         <%= link_to article.title, article %>
     <%= close_h_tag(index) %>
+    <p>by <%= link_to article.author.name, author %></p>
 <% end %>
