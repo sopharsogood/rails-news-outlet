@@ -1,0 +1,6 @@
+<h1>Breaking News</h1>
+<% @articles.each_with_index do |article, index| %>
+    <%= open_h_tag(index) %>
+        <%= link_to article.title, article %>
+    <%= close_h_tag(index) %>
+<% end %>
