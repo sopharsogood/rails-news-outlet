@@ -10,8 +10,8 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    has_many :articles, as: :articles_written
+    has_many :written_articles, class_name: "Article", foreign_key: "author_id"
     has_many :comments
-    has_many :articles, through: :comments, as: :articles_commented_on
+    has_many :articles, through: :comments
 
 end

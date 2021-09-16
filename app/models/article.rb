@@ -5,7 +5,7 @@ class Article < ApplicationRecord
     # t.datetime "created_at", precision: 6, null: false
     # t.datetime "updated_at", precision: 6, null: false
 
-    belongs_to :user, as: :author
+    belongs_to :author, class_name: "User"
     has_many :comments
-    has_many :users, through: :comments, as: :commenters
+    has_many :users, through: :comments
 end

@@ -5,4 +5,7 @@ class Comment < ApplicationRecord
     # t.integer "parent_id"
     # t.datetime "created_at", precision: 6, null: false
     # t.datetime "updated_at", precision: 6, null: false
+
+    belongs_to :user
+    belongs_to :article
 end
