@@ -1,9 +1,10 @@
-<%= form_for article do |f| %>
+<%= form_for article, method: form_method do |f| %>
     <p>
         <%= f.label :title %>
         <%= f.text_field :title %>
     </p><p>
         <%= f.text_area :content %>
     </p>
+    <%= f.hidden :author_id %>
     <%= f.submit submit_label %>
 <% end %>
