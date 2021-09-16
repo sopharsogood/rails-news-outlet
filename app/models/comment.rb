@@ -15,4 +15,11 @@ class Comment < ApplicationRecord
     validates :content, presence: true, length: { maximum: 5000 }
     validates :article_id, presence: true
     validates :user_id, presence: true
+    validate :parent_and_article_must_match
+
+    def parent_and_article_must_match
+        if self.parent && self.parent.article_id != self.article_id
+            errors.add(:parent, "if present, must be on same article as new comment")
+        end
+    end
 end
