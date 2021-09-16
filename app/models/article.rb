@@ -4,4 +4,8 @@ class Article < ApplicationRecord
     # t.integer "author_id"
     # t.datetime "created_at", precision: 6, null: false
     # t.datetime "updated_at", precision: 6, null: false
+
+    belongs_to :user, as: :author
+    has_many :comments
+    has_many :users, through: :comments, as: :commenters
 end
