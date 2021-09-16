@@ -6,4 +6,8 @@ module ApplicationHelper
     def current_user
         User.find(session[:user_id])
     end
+
+    def current_user_is?(user)
+        current_user == user
+    end
 end

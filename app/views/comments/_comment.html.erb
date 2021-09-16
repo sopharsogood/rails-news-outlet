@@ -4,7 +4,7 @@
     <p><%= comment.content %></p>
     <h6>
         <%= link_to "Reply", new_article_comment_path(comment.article_id) %>
-        <% if current_user.id == comment.user.id %>
+        <% if current_user_is?(comment.user) %>
             - <%= link_to "Edit", edit_article_comment_path(comment.article_id, comment.id) %>
             - <%= link_to "Delete", delete_article_comment_path(comment.article_id, comment.id) %>
         <% end %>
