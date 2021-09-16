@@ -1,24 +1,17 @@
-# README
+# Rails News Outlet
+### Flatiron software engineering, phase 3 project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails web application where staff can write news articles and guests can leave nested comments.
 
-Things you may want to cover:
+## Installation:
 
-* Ruby version
+Perform a `$ bundle install` and `$ rails db:migrate` as setup. Warning: login through external sites will not be functional on your clone as the external login secrets in the .env file are not publicly available for security reasons.
 
-* System dependencies
+## Contributing:
 
-* Configuration
+Bug reports and pull requests are welcome on GitHub at https://github.com/sopharsogood/rails-news-outlet. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
-* Database creation
+## License:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This program is released under the MIT License. See here for more information:
+https://github.com/sopharsogood/rails-news-outlet/blob/main/LICENSE
