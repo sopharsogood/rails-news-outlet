@@ -11,4 +11,13 @@ class Article < ApplicationRecord
 
     validates :title, presence: true
     validates :content, presence: true
+    validate :author_is_staff
+
+    def author_is_staff
+        puts self.author
+        puts self.author.email
+        puts self.author.email[-14..-1]
+        puts self.author.is_staff?
+        self.author && self.author.is_staff?
+    end
 end

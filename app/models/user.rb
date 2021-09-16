@@ -14,8 +14,7 @@ class User < ApplicationRecord
 
     has_secure_password
     validates :email, presence: true, uniqueness: true
-    validates :bio, presence: true, length: { maximum: 1000 }
-
+    
     def is_staff?
         self.email[-14..-1] == "@newsrail.news"
     end
