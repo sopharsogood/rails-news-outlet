@@ -1,4 +1,6 @@
-<%= render partial: comment,
+<%= render partial: 'articles/article', locals: { article: @comment.article } %>
+
+<%= render partial: 'comment',
            locals: {
                comment: parent_or_self_if_orphan(@comment),
                depth: 0,
