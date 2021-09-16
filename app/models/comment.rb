@@ -11,4 +11,8 @@ class Comment < ApplicationRecord
 
     has_many :children, class_name: "Comment", foreign_key: "parent_id"
     belongs_to :parent, class_name: "Comment", optional: true
+
+    validates :content, presence: true, length: { maximum: 5000 }
+    validates :article_id, presence: true
+    validates :user_id, presence: true
 end
