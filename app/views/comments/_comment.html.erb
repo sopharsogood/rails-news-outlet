@@ -1,4 +1,5 @@
 <div>
+    <% children_to_display ||= comment.children %>
     <h5><%= comment.user.name %> wrote at <%= comment.display_created_at %>:</h5>
     <p><%= comment.content %></p>
     <h6>
@@ -8,13 +9,13 @@
             - <%= link_to "Delete", delete_article_comment_path(comment.article_id, comment.id) %>
         <% end %>
     </h6>
-    <% unless comment.children.empty? %>
+    <% unless children_to_display.empty? %>
         <table>
         <td class="side-stripe"></td>
         <td class="level-<%= comment.true_depth %>-stripe"></td>
         <td class="side-stripe"></td>
         <td>
-            <%= render(comment.children), locals: { depth: depth + 1 }
+            <%= render(children_to_display), locals: { depth: depth + 1 }
         </td>
     <% end %>
 </div>
