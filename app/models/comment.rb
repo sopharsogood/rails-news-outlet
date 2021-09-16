@@ -22,4 +22,12 @@ class Comment < ApplicationRecord
             errors.add(:parent, "if present, must be on same article as new comment")
         end
     end
+
+    def true_depth
+        if self.parent
+            self.parent.true_depth + 1
+        else
+            0
+        end
+    end
 end
