@@ -14,4 +14,9 @@ module ArticlesHelper
             "</h3>"
         end
     end
+
+    def author_byline(article)
+        "by " + link_to article.author.name, article.author
+    end
+        
 end
