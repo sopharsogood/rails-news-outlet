@@ -10,4 +10,8 @@ module ApplicationHelper
     def current_user_is?(user)
         current_user == user
     end
+
+    def current_user_is_staff?
+        current_user.is_staff?
+    end
 end
