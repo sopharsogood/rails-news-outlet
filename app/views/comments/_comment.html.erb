@@ -15,7 +15,11 @@
         <td class="level-<%= comment.true_depth %>-stripe"></td>
         <td class="side-stripe"></td>
         <td>
-            <%= render(children_to_display), locals: { depth: depth + 1 }
+            <% if depth < max_display_depth %>
+                <%= render(children_to_display), locals: { depth: depth + 1 } %>
+            <% else %>
+                <%= link_to "See more replies", article_comment_path(comment.article_id, comment.id) %>
+            <% end %>
         </td>
     <% end %>
 </div>
