@@ -18,4 +18,8 @@ class Article < ApplicationRecord
             errors.add(:author, "must work at newsrail")
         end
     end
+
+    def author_bio
+        self.author.bio
+    end
 end
