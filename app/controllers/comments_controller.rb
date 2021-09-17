@@ -21,10 +21,10 @@ class CommentsController < ApplicationController
 
     def update
         unless reject_if_comment_does_not_match_article
-            if @article.update(edit_article_params)
-                redirect_to @article
+            if @comment.update(edit_comment_params)
+                redirect_to @comment
             else
-                render edit_article_path(@article)
+                render :edit
             end
         end
     end
@@ -63,7 +63,11 @@ class CommentsController < ApplicationController
         end
     end
 
-    def edit_article_params
-        params.require(:article).permit(:title, :content)
+    def edit_comment_params
+        params.require(:comment).permit(:content)
+    end
+
+    def new_comment_params
+        params.require(:comment).permit(:content, :user_id, :parent_id, :article_id)
     end
 end
