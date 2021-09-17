@@ -1,6 +1,6 @@
 <h1>Edit Reply</h1>
 
-<% if @comment.parent_id %>
+<% if @comment.has_parent? %>
 <p>Editing reply to:</p>
     <%= render partial: 'comment',
            locals: {

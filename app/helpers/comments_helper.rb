@@ -8,7 +8,7 @@ module CommentsHelper
     end
 
     def parent_or_self_if_orphan(comment)
-        if comment.parent_id
+        if comment.has_parent?
             comment.parent
         else
             comment
@@ -16,7 +16,7 @@ module CommentsHelper
     end
 
     def self_if_parent_or_children_otherwise(comment)
-        if comment.parent_id
+        if comment.has_parent?
             [comment]
         else
             comment.children
@@ -32,7 +32,7 @@ module CommentsHelper
     end
 
     def comment_form_submission_path(comment)
-        if comment.parent_id
+        if comment.has_parent?
             article_new_comment_reply_path(comment.article, comment.parent)
         else
             new_article_comment_path(comment.article)

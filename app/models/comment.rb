@@ -22,13 +22,13 @@ class Comment < ApplicationRecord
     end
 
     def parent_and_article_must_match
-        if self.parent && self.parent.article_id != self.article_id
+        if self.has_parent? && self.parent.article_id != self.article_id
             errors.add(:parent, "if present, must be on same article as new comment")
         end
     end
 
     def true_depth
-        if self.parent
+        if self.has_parent?
             self.parent.true_depth + 1
         else
             0
