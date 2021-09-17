@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
 
     before_action :redirect_if_wrong_user, only: [:edit, :update]
 
+    before_action :clear_redirect_to_login_memory
+
     def new
         @comment = Comment.new(article: @article, parent: @comment, user: current_user)
     end

@@ -13,5 +13,9 @@ class ApplicationController < ActionController::Base
             false #made explicit so it's clear how `unless redirect_if_not_logged_in` works
         end
     end
+
+    def clear_redirect_to_login_memory
+        session[:redirected_to_login_from] = nil
+    end
  
 end

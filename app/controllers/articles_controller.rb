@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
     before_action :redirect_if_not_staff_or_wrong_staff
     skip_before_action :redirect_if_not_staff_or_wrong_staff, only: [:show, :index]
 
+    before_action :clear_redirect_to_login_memory
+    
     def new
         @article = Article.new(author: current_user)
     end

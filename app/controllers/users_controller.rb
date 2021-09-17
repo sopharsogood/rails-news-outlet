@@ -2,6 +2,10 @@ class UsersController < ApplicationController
     before_action :redirect_if_not_logged_in, only: [:edit, :update]
     before_action :redirect_if_wrong_user, only: [:edit, :update]
 
+    before_action :clear_redirect_to_login_memory
+    skip_before_action :clear_redirect_to_login_memory, only: [:new, :create, :login, :signin]
+    
+    
     def new
         @user = User.new
     end
