@@ -1,6 +1,7 @@
-<%= render partial: 'articles/article', locals: { article: @comment.article } %>
+<h1>Edit Reply</h1>
 
 <% if @comment.parent_id %>
+<p><%= Editing reply to %>:</p>
     <%= render partial: 'comment',
            locals: {
                comment: @comment.parent,
@@ -9,7 +10,11 @@
             } %>
 <% end %>
 
-<%= render partial: 'form', locals: {
-    comment: @comment,
-    submit_label: "Edit Reply"
-} %>
+<%= form_for comment do |f| %>
+    <p><%= f.text_area :content %></p>
+    <p><%= f.submit "Edit Reply" %></p>
+<% end %>
+
+<h2>in reply to article:</h2>
+
+<%= render partial: 'articles/article', locals: { article: @comment.article } %>
