@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(new_article_params)
         if @article.save
+            flash[:message] = "New article posted and now live!"
             redirect_to @article
         else
             render :new
@@ -19,12 +20,11 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        @article = Article.find(params[:id])
     end
 
     def update
-        @article = Article.find(params[:id])
         if @article.update(edit_article_params)
+            flash[:message] = "Revisions to article saved!"
             redirect_to @article
         else
             render :edit
@@ -32,7 +32,6 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        @article = Article.find(params[:id])
     end
 
     def index

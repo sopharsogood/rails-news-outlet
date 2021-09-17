@@ -10,6 +10,7 @@ class UsersController < ApplicationController
         @user = User.new(new_user_params)
         if @user.save
             session[:user_id] = @user.id
+            flash[:message] = "Signup complete! Welcome to Newsrail, #{@user.name}!"
             redirect_to root_path
         else
             render :login
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
 
     def update
         if @user.update(edit_user_params)
+            flash[:message] = "Profile and settings changes saved!"
             redirect_to @user
         else
             render :edit
@@ -39,6 +41,7 @@ class UsersController < ApplicationController
         @user = User.find_by(email: params[:user][:email])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
+            flash[:message] = "Login complete! Welcome back, #{@user.name}!"
             redirect_to root_path
         else
             @user = User.new unless @user
