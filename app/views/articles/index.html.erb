@@ -3,6 +3,6 @@
     <h<%= h_tag_number(index) %>>
         <%= display_article_link(article) %>
     </h<%= h_tag_number(index) %>>
-    by <%= display_user_link(article.author) %>
+    <%= author_byline(article) %>
     <br><br>
 <% end %>
