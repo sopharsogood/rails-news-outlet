@@ -1,0 +1,12 @@
+body {
+    background-color: #262135;
+    color: azure;
+}
+
+a:link {
+    color:rgb(108, 145, 255);
+}
+
+a:visited {
+    color: orchid;
+}
