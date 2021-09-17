@@ -29,6 +29,10 @@ class CommentsController < ApplicationController
         end
     end
 
+    def show
+        reject_if_comment_does_not_match_article
+    end
+
     private
 
     def reject_if_comment_does_not_match_article
