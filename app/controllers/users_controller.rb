@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :redirect_if_not_logged_in, only: [:edit, :update]
+    before_action :redirect_if_wrong_user, only: [:edit, :update]
 
     def new
         @user = User.new
@@ -20,11 +21,9 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
     end
 
     def update
-        @user = User.find(params[:id])
         if @user.update(edit_user_params)
             redirect_to @user
         else
@@ -60,6 +59,14 @@ class UsersController < ApplicationController
 
     def edit_user_params
         params.require(:user).permit(:name, :email, :bio, :theme, :comment_depth)
+    end
+
+    def redirect_if_wrong_user
+        @user = User.find(params[:id])
+        unless current_user_is?(@user)
+            flash[:error] = "A user's page can only be edited by that user themselves."
+            redirect_to @user
+        end
     end
 
 end

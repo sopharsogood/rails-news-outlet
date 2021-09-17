@@ -24,7 +24,7 @@ module CommentsHelper
     end
 
     def display_comment_link(comment)
-        link_to comment.content, comment
+        link_to comment.content, article_comment_path(comment.article, comment)
     end
 
     def display_created_at(comment)
