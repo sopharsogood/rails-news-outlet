@@ -8,7 +8,7 @@
          - <%= link_to "Reply", new_article_comment_path(comment.article_id) %>
         <% if current_user_is?(comment.user) %>
              - <%= link_to "Edit", edit_article_comment_path(comment.article_id, comment.id) %>
-             - <%= link_to "Delete", delete_article_comment_path(comment.article_id, comment.id) %>
+             - <%= link_to "Delete", delete_article_comment_path(comment.article_id, comment.id), method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
         <% end %>
     </h6>
     <% unless children_to_display.empty? %>
