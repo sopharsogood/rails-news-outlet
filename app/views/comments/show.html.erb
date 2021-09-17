@@ -4,5 +4,6 @@
            locals: {
                comment: parent_or_self_if_orphan(@comment),
                depth: 0,
-               children_to_display: self_if_parent_or_children_otherwise(@comment)
+               children_to_display: self_if_parent_or_children_otherwise(@comment),
+               until_highlight: initial_highlight_depth(@comment)
             } %>

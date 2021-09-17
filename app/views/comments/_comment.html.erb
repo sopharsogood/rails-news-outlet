@@ -1,8 +1,9 @@
 <div>
     <% depth ||= 0 %>
     <% children_to_display ||= comment.children %>
+    <% until_highlight ||= 0 %>
     <h5><%= display_user_link(comment.user) %> wrote on <%= display_created_at(comment) %>:</h5>
-    <p><%= comment.content %></p>
+    <p <%= class="highlight" if until_highlight == 1 %>><%= comment.content %></p>
     <h6>
         <%= link_to "View", article_comment_path(comment.article_id, comment.id) %>
          - <%= link_to "Reply", new_article_comment_path(comment.article_id) %>
@@ -22,7 +23,7 @@
         <td>
             <% if depth < max_display_depth %>
                 <% children_to_display.each do |child| %>
-                    <%= render partial: 'comments/comment', locals: { comment: child, depth: depth + 1 } %>
+                    <%= render partial: 'comments/comment', locals: { comment: child, depth: depth + 1, until_highlight: until_highlight - 1 } %>
                 <% end %>
             <% else %>
                 <%= link_to "See more replies", article_comment_path(comment.article_id, comment.id) %>

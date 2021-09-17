@@ -39,4 +39,12 @@ module CommentsHelper
         end
     end
 
+    def initial_highlight_depth(comment
+        if comment.has_parent?
+            2
+        else
+            1
+        end
+    end
+
 end
