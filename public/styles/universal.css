@@ -3,11 +3,18 @@ div {
 }
 
 input[type=text] {
-    width: 30%;
+    width: 25%;
+    padding: 1px;
 }
 
 input[type=text]#article_title {
     width: 70%;
+}
+
+textarea {
+    width: 28%;
+    height: 120px;
+    padding: 5px;
 }
 
 textarea#article_content {
