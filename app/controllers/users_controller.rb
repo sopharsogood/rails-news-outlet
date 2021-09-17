@@ -31,7 +31,6 @@ class UsersController < ApplicationController
         end
     end
 
-
     def login
         @user = User.new
     end
@@ -45,6 +44,11 @@ class UsersController < ApplicationController
             @user = User.new unless @user
             render :login
         end
+    end
+
+    def logout
+        session[:user_id] = nil
+        redirect_to login_path
     end
 
     private
