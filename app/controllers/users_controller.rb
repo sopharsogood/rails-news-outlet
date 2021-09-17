@@ -52,7 +52,12 @@ class UsersController < ApplicationController
     end
 
     def logout
-        session[:user_id] = nil
+        if logged_in?
+            flash[:message] = "Logout complete! Goodbye for now, #{current_user.name}."
+            session[:user_id] = nil
+        else
+            flash[:error] = "You're already logged out."
+        end
         redirect_to login_path
     end
 
