@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
     skip_before_action :redirect_if_not_logged_in, only: [:show]
 
-    before_action :redirect_if_wrong_user, only: [:edit, :update]
+    before_action :redirect_if_wrong_user, only: [:edit, :update, :destroy]
 
     before_action :update_last_path_before_login
 
@@ -40,6 +40,17 @@ class CommentsController < ApplicationController
     end
 
     def show
+    end
+
+    def destroy
+        if @comment.children.empty?
+            @comment.destroy
+            flash[:message] = "Comment deleted!"
+            redirect_to @article
+        else
+            flash[:error] = "Oops! Someone else replied to your comment, and comments with children can't be deleted."
+            redirect_to article_comment_path(@article, @comment)
+        end
     end
 
     private
