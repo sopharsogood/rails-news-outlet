@@ -33,7 +33,7 @@ module CommentsHelper
 
     def new_comment_url(comment)
         if comment.parent_id
-            new_article_comment_reply_path(comment.article, comment.parent)
+            article_new_comment_reply_path(comment.article, comment.parent)
         else
             new_article_comment_path(comment.article)
         end

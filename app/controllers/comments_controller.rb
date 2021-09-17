@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
     def new
         reject_if_comment_does_not_match_article_but_allow_absent_comment
-        @comment = Comment.new(article: @article, parent: @comment, user: current_user)
+        @comment = Comment.new(article: @article, parent: @comment, user: helpers.current_user)
     end
 
     def create
