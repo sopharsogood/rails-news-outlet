@@ -13,10 +13,27 @@ class ArticlesController < ApplicationController
         end
     end
 
+    def edit
+        @article = Article.find(params[:id])
+    end
+
+    def update
+        @article = Article.find(params[:id])
+        if @article.update(edit_article_params)
+            redirect_to @article
+        else
+            render :edit
+        end
+    end
+
     private
 
     def new_article_params
         params.require(:article).permit(:title, :content, :author_id)
+    end
+
+    def edit_article_params
+        params.require(:article).permit(:title, :content)
     end
 
 end
