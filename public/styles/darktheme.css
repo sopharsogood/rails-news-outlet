@@ -46,3 +46,11 @@ td.level-5-stripe {
 td.level-6-stripe {
     background-color: darkviolet;
 }
+
+li.error, p.flash-error {
+    color:rgb(255, 40, 51);
+}
+
+p.flash-message {
+    color: dodgerblue;
+}

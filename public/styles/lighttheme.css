@@ -29,3 +29,11 @@ td.level-5-stripe {
 td.level-6-stripe {
     background-color: violet;
 }
+
+li.error, p.flash-error {
+    color: crimson;
+}
+
+p.flash-message {
+    color: rgb(2, 218, 2);
+}

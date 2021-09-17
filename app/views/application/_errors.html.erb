@@ -4,7 +4,7 @@
         <h4>Here's what went wrong:</h2>
         <ul>
             <% form_subject.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+                <li class="error"><%= message %></li>
             <% end %>
         </ul>
     </div>
