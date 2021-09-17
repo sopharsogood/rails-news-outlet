@@ -5,5 +5,5 @@
 
 <p><i><%= article.author_bio %></i></p>
 <% if current_user_is_staff? && current_user_is?(article.author) %>
-<h3><%= link_to "Revise Article", edit_article_path(article) %> - <%= link_to "Delete Article", delete_article_path(article) %></h3>
+<h4><%= link_to "Revise Article", edit_article_path(article) %> - <%= link_to "Delete Article", article, method: :delete, data: { confirm: "Are you sure you want to delete this article? Editing in an erratum might be another option!" } %></h4>
 <% end %>
