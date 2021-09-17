@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
             flash[:error] = "No such article found"
             redirect_to articles_path
             true
-        elsif !@comment || @comment.article_id != article.id
+        elsif !@comment || @comment.article_id != @article.id
             flash[:error] = "No such comment found on this article"
             redirect_to article
             true
@@ -58,7 +58,7 @@ class CommentsController < ApplicationController
             flash[:error] = "No such article found"
             redirect_to articles_path
             true
-        elsif @comment && @comment.article_id != article.id
+        elsif @comment && @comment.article_id != @article.id
             flash[:error] = "No such comment found on this article"
             redirect_to article
             true
