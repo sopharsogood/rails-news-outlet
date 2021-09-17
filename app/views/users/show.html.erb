@@ -3,7 +3,7 @@
 <% if !@user.written_articles.empty? %>
     <h2>Articles written:</h2>
     <% @user.written_articles.each do |article| %>
-        <h3><%= link_to article.title, article %></h3>
+        <h3><%= display_article_link(article) %></h3>
     <% end %>
 <% end %>
 
@@ -11,7 +11,7 @@
     <h2>Comments posted:</h2>
     <ul>
     <% @user.comments.each do |comment| %>
-        <li><%= link_to comment.content, comment %></li>
+        <li><%= display_comment_link(comment) %></li>
     <% end %>
     </ul>
 <% end %>

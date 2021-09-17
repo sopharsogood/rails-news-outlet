@@ -22,4 +22,8 @@ module CommentsHelper
             comment.children
         end
     end
+
+    def display_comment_link(comment)
+        link_to comment.content, comment
+    end
 end
