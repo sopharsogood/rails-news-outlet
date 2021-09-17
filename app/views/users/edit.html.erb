@@ -1,6 +1,6 @@
 <h1>Edit Account Settings</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, method: :patch do |f| %>
     <p>
         <%= f.label :name %>
         <%= f.text_field :name %>
