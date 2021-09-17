@@ -19,7 +19,7 @@
         <td>
             <% if depth < max_display_depth %>
                 <% children_to_display.each do |child| %>
-                    <%= render partial: 'comment', locals: { comment: child, depth: depth + 1 } %>
+                    <%= render partial: 'comments/comment', locals: { comment: child, depth: depth + 1 } %>
                 <% end %>
             <% else %>
                 <%= link_to "See more replies", article_comment_path(comment.article_id, comment.id) %>

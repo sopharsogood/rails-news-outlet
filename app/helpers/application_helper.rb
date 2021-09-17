@@ -4,7 +4,7 @@ module ApplicationHelper
     end
 
     def current_user
-        User.find(session[:user_id])
+        User.find_by(id: session[:user_id])
     end
 
     def current_user_is?(user)
@@ -12,6 +12,6 @@ module ApplicationHelper
     end
 
     def current_user_is_staff?
-        current_user.is_staff?
+        logged_in? && current_user.is_staff?
     end
 end
