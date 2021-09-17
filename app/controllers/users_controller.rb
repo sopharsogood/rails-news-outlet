@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             flash[:message] = "Signup complete! Welcome to Newsrail, #{@user.name}!"
-            redirect_to root_path
+            return_or_index
         else
             render :login
         end
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             flash[:message] = "Login complete! Welcome back, #{@user.name}!"
-            redirect_to root_path
+            return_or_index
         else
             @user = User.new unless @user
             render :login
@@ -69,6 +69,14 @@ class UsersController < ApplicationController
         unless current_user_is?(@user)
             flash[:error] = "A user's page can only be edited by that user themselves."
             redirect_to @user
+        end
+    end
+
+    def return_or_index
+        if session[:redirected_to_login_from]
+            redirect_to session[:redirected_to_login_from]
+        else
+            redirect_to articles_path
         end
     end
 
