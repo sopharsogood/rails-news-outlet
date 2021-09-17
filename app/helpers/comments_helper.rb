@@ -31,7 +31,7 @@ module CommentsHelper
         "created @"
     end
 
-    def new_comment_url(comment)
+    def comment_form_submission_path(comment)
         if comment.parent_id
             article_new_comment_reply_path(comment.article, comment.parent)
         else
