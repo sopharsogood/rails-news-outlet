@@ -26,4 +26,9 @@ module CommentsHelper
     def display_comment_link(comment)
         link_to comment.content, comment
     end
+
+    def display_created_at(comment)
+        "created @"
+    end
+
 end
