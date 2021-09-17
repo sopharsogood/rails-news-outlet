@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :articles do
     resources :comments
+    get '/comments/:id/new', to: 'users#new', as: 'new_article_comment_reply'
+    post '/comments/:id/new', to: 'users#create'
   end
   resources :users
 
