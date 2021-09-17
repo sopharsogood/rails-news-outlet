@@ -1,5 +1,7 @@
 <h1>Log Into Existing User Account</h1>
 
+<%= render partial: 'application/errors', locals: { form_subject = @user } %>
+
 <%= form_for @user, url: login_path do |f| %>
     <p>
         <%= f.label :email %>

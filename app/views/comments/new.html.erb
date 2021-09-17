@@ -10,6 +10,8 @@
             } %>
 <% end %>
 
+<%= render partial: 'application/errors', locals: { form_subject = @comment } %>
+
 <%= form_for @comment, url: new_comment_url(@comment) do |f| %>
     <p><%= f.text_area :content %></p>
     <%= f.hidden_field :parent_id %>
