@@ -10,12 +10,11 @@
             } %>
 <% end %>
 
-<%= render partial: 'application/errors', locals: { form_subject = @comment } %>
-
-<%= form_for @comment, method: :patch, url: edit_article_comment_path do |f| %>
-    <p><%= f.text_area :content %></p>
-    <p><%= f.submit "Edit Reply" %></p>
-<% end %>
+<%= render partial: 'form', locals: {
+    comment: @comment,
+    submit_label: "Edit Reply",
+    form_method: :patch
+} %>
 
 <h2>in reply to article:</h2>
 
