@@ -28,7 +28,7 @@ module CommentsHelper
     end
 
     def display_created_at(comment)
-        "created @"
+        comment.created_at.strftime("%a %-d/%-m/%y at %-I:%M %p")
     end
 
     def comment_form_submission_path(comment)
