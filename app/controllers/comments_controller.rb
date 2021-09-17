@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
 
     def update
         if @comment.update(edit_comment_params)
-            redirect_to @comment
+            redirect_to article_comment_path(@comment.article, @comment)
         else
             render :edit
         end
@@ -65,7 +65,7 @@ class CommentsController < ApplicationController
     def redirect_if_wrong_user
         unless current_user_is?(@comment.user)
             flash[:error] = "Only the original poster of a comment can edit or delete it."
-            redirect_to @comment
+            redirect_to article_comment_path(@comment.article, @comment)
         end
     end
 end
