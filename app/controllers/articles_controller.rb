@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+    before_action :redirect_if_not_logged_in
+    skip_before_action :redirect_if_not_logged_in, only: [:show, :index]
 
     def new
         @article = Article.new(author: current_user)

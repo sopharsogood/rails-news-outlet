@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+    before_action :redirect_if_not_logged_in
+    skip_before_action :redirect_if_not_logged_in, only: [:show]
 
     def new
         reject_if_comment_does_not_match_article_but_allow_absent_comment
