@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
     skip_before_action :redirect_if_not_logged_in, only: [:show]
 
+    before_action :redirect_if_wrong_user, only: [:edit, :update]
+
     def new
         @comment = Comment.new(article: @article, parent: @comment, user: current_user)
     end
@@ -46,7 +48,7 @@ class CommentsController < ApplicationController
 
     def redirect_if_invalid_article_route
         @article = Article.find_by(id: params[:article_id])
-        if !@article
+        unless @article
             flash[:error] = "No such article found."
             redirect_to articles_path
         end
@@ -54,9 +56,16 @@ class CommentsController < ApplicationController
 
     def redirect_if_comment_not_found_for_article
         @comment = @article.comments.find_by(id: params[:id])
-        if !@comment
+        unless @comment
             flash[:error] = "No such comment found on this article."
             redirect_to @article
+        end
+    end
+
+    def redirect_if_wrong_user
+        unless current_user_is?(@comment.user)
+            flash[:error] = "Only the original poster of a comment can edit or delete it."
+            redirect_to @comment
         end
     end
 end
