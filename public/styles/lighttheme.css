@@ -1,3 +1,31 @@
 body {
     background-color: aliceblue;
 }
+
+td.level-0-stripe {
+    background-color: red;
+}
+
+td.level-1-stripe {
+    background-color: orange;
+}
+
+td.level-2-stripe {
+    background-color: yellow;
+}
+
+td.level-3-stripe {
+    background-color: limegreen;
+}
+
+td.level-4-stripe {
+    background-color: cyan;
+}
+
+td.level-5-stripe {
+    background-color: blue;
+}
+
+td.level-6-stripe {
+    background-color: violet;
+}
