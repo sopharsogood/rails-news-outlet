@@ -42,6 +42,13 @@ class ArticlesController < ApplicationController
         @articles = Article.all.order(created_at: :desc)
     end
 
+    def destroy
+        @article.comments.destroy_all
+        @article.destroy
+        flash[:message] = "Article deleted forever!"
+        redirect_to articles_path
+    end
+
     private
 
     def new_article_params
