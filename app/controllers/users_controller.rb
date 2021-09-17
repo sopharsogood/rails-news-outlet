@@ -48,7 +48,7 @@ class UsersController < ApplicationController
             flash[:message] = "Login complete! Welcome back, #{@user.name}!"
             return_or_index
         else
-            @user = User.new unless @user
+            @user = User.new(email: params[:user][:email])
             flash[:error] = "Email or password incorrect. Make sure you've typed everything correctly."
             render :login
         end
