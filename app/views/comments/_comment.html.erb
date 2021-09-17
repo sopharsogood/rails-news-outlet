@@ -1,6 +1,6 @@
 <div>
     <% children_to_display ||= comment.children %>
-    <h5><%= comment.user.name %> wrote at <%= comment.display_created_at %>:</h5>
+    <h5><%= display_user_link(comment.user) %> wrote at <%= comment.display_created_at %>:</h5>
     <p><%= comment.content %></p>
     <h6>
         <%= link_to "Reply", new_article_comment_path(comment.article_id) %>
