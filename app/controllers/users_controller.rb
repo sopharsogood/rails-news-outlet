@@ -18,6 +18,20 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+        if @user.update(edit_user_params)
+            redirect_to @user
+        else
+            render :edit
+        end
+    end
+
+
     def login
         @user = User.new
     end
@@ -37,6 +51,10 @@ class UsersController < ApplicationController
 
     def new_user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def edit_user_params
+        params.require(:user).permit(:name, :email, :bio, :theme, :comment_depth)
     end
 
 end
