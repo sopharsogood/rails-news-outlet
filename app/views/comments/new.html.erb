@@ -10,7 +10,7 @@
             } %>
 <% end %>
 
-<%= form_for comment do |f| %>
+<%= form_for @comment do |f| %>
     <p><%= f.text_area :content %></p>
     <%= f.hidden :parent_id %>
     <%= f.hidden :article_id %>
