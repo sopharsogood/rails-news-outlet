@@ -1,5 +1,11 @@
 <h1><%= @user.name %></h1>
 
+<p><%= @user.bio %></p>
+
+<% if current_user_is?(@user) %>
+    <h5><%= link_to "Edit Settings & Account", edit_user_path(@user) %></h5>
+<% end %>
+
 <% if !@user.written_articles.empty? %>
     <h2>Articles written:</h2>
     <% @user.written_articles.each do |article| %>
