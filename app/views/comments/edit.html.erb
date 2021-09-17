@@ -1,0 +1,15 @@
+<%= render partial: 'articles/article', locals: { article: @comment.article } %>
+
+<% if @comment.parent_id %>
+    <%= render partial: 'comment',
+           locals: {
+               comment: @comment.parent,
+               depth: 0,
+               children_to_display: []
+            } %>
+<% end %>
+
+<%= render partial: 'form', locals: {
+    comment: @comment,
+    submit_label: "Edit Reply"
+} %>
