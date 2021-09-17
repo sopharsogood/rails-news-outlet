@@ -39,7 +39,7 @@ module CommentsHelper
         end
     end
 
-    def initial_highlight_depth(comment
+    def initial_highlight_depth(comment)
         if comment.has_parent?
             2
         else

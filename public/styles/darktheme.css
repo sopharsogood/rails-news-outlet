@@ -54,3 +54,7 @@ li.error, p.flash-error {
 p.flash-message {
     color: dodgerblue;
 }
+
+p.highlight {
+    background-color: rgb(145, 104, 0);
+}
