@@ -16,7 +16,7 @@ class UsersController < ApplicationController
             return_or_index
         else
             flash[:error] = "Something went wrong. New account couldn't be created."
-            render :login
+            render :new
         end
     end
     

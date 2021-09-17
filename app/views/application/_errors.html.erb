@@ -1,7 +1,7 @@
 <% puts form_subject.errors %>
 <% if form_subject.errors.any? %>
     <div id="error_explanation">
-        <h4>Here"'"s what went wrong:</h2>
+        <h4>Here's what went wrong:</h2>
         <ul>
             <% form_subject.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
