@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_193824) do
     t.string "password_digest"
     t.string "email"
     t.string "theme", default: "light"
-    t.string "comment_depth", default: "7"
+    t.integer "comment_depth", default: 7
     t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

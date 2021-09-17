@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :password_digest
       t.string :email
       t.string :theme, default: 'light'
-      t.string :comment_depth, default: 7
+      t.integer :comment_depth, default: 7
       t.string :bio
 
       t.timestamps
