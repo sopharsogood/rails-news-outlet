@@ -1,0 +1,23 @@
+<h1>New Reply</h1>
+
+<% if @comment.parent_id %>
+<p><%= Replying to %>:</p>
+    <%= render partial: 'comment',
+           locals: {
+               comment: @comment.parent,
+               depth: 0,
+               children_to_display: []
+            } %>
+<% end %>
+
+<%= form_for comment do |f| %>
+    <p><%= f.text_area :content %></p>
+    <%= f.hidden :parent_id %>
+    <%= f.hidden :article_id %>
+    <%= f.hidden :user_id %>
+    <p><%= f.submit "Post Reply" %></p>
+<% end %>
+
+<h2>in reply to article:</h2>
+
+<%= render partial: 'articles/article', locals: { article: @comment.article } %>
