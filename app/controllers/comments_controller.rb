@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
     before_action :redirect_if_wrong_user, only: [:edit, :update]
 
-    before_action :clear_redirect_to_login_memory
+    before_action :update_last_page_before_login
 
     def new
         @comment = Comment.new(article: @article, parent: @comment, user: current_user)

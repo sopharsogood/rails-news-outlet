@@ -2,9 +2,7 @@ class UsersController < ApplicationController
     before_action :redirect_if_not_logged_in, only: [:edit, :update]
     before_action :redirect_if_wrong_user, only: [:edit, :update]
 
-    before_action :clear_redirect_to_login_memory
-    skip_before_action :clear_redirect_to_login_memory, only: [:new, :create, :login, :signin]
-    
+    before_action :update_last_page_before_login, only: [:show, :edit, :update]
     
     def new
         @user = User.new
@@ -77,8 +75,8 @@ class UsersController < ApplicationController
     end
 
     def return_or_index
-        if session[:redirected_to_login_from]
-            redirect_to session[:redirected_to_login_from]
+        if session[:last_page_before_login]
+            redirect_to session[:last_page_before_login]
         else
             redirect_to articles_path
         end
