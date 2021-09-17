@@ -18,3 +18,32 @@ textarea, input[type=text], select {
 input[type=submit] {
     background-color: lightblue;
 }
+
+td.level-0-stripe {
+    background-color: darkred;
+}
+
+td.level-1-stripe {
+    background-color: rgb(231, 127, 0);
+}
+
+td.level-2-stripe {
+    background-color: rgb(218, 205, 38);
+}
+
+td.level-3-stripe {
+    background-color: darkgreen;
+}
+
+td.level-4-stripe {
+    background-color: darkcyan;
+}
+
+td.level-5-stripe {
+    background-color: darkblue;
+}
+
+td.level-6-stripe {
+    background-color: darkviolet;
+}
+
