@@ -17,6 +17,10 @@ class Comment < ApplicationRecord
     validates :user_id, presence: true
     validate :parent_and_article_must_match
 
+    def has_parent?
+        !self.parent_id.nil?
+    end
+
     def parent_and_article_must_match
         if self.parent && self.parent.article_id != self.article_id
             errors.add(:parent, "if present, must be on same article as new comment")
