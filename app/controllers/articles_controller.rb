@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
             flash[:message] = "New article posted and now live!"
             redirect_to @article
         else
+            flash[:error] = "Something went wrong. Article couldn't be created."
             render :new
         end
     end
@@ -29,6 +30,7 @@ class ArticlesController < ApplicationController
             flash[:message] = "Revisions to article saved!"
             redirect_to @article
         else
+            flash[:error] = "Something went wrong. Article revisions couldn't be saved."
             render :edit
         end
     end

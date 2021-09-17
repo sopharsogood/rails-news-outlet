@@ -21,6 +21,7 @@ class CommentsController < ApplicationController
             flash[:message] = "Comment posted!"
             redirect_to article_comment_path(@article, @comment)
         else
+            flash[:error] = "Something went wrong. Comment failed to post."
             render :new
         end
     end
@@ -33,6 +34,7 @@ class CommentsController < ApplicationController
             flash[:message] = "Comment edited!"
             redirect_to article_comment_path(@article, @comment)
         else
+            flash[:error] = "Something went wrong. Your changes to your comment could not be saved."
             render :edit
         end
     end

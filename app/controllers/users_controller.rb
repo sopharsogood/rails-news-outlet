@@ -15,6 +15,7 @@ class UsersController < ApplicationController
             flash[:message] = "Signup complete! Welcome to Newsrail, #{@user.name}!"
             return_or_index
         else
+            flash[:error] = "Something went wrong. New account couldn't be created."
             render :login
         end
     end
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
             flash[:message] = "Profile and settings changes saved!"
             redirect_to @user
         else
+            flash[:error] = "Something went wrong. Profile and settings couldn't be saved."
             render :edit
         end
     end
@@ -47,6 +49,7 @@ class UsersController < ApplicationController
             return_or_index
         else
             @user = User.new unless @user
+            flash[:error] = "Email or password incorrect. Make sure you've typed everything correctly."
             render :login
         end
     end
