@@ -18,4 +18,8 @@ class User < ApplicationRecord
     def is_staff?
         self.email[-14..-1] == "@newsrail.news"
     end
+
+    def unique_articles_commented
+        self.articles.uniq
+    end
 end

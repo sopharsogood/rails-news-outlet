@@ -14,4 +14,10 @@
         <li><%= display_comment_link(comment) %></li>
     <% end %>
     </ul>
+    <h2>Articles commented on:</h2>
+    <ul>
+    <% @user.unique_articles_commented.each do |article| %>
+        <li><%= display_article_link(article) %></li>
+    <% end %>
+    </ul>
 <% end %>
