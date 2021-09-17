@@ -1,3 +1,5 @@
 <%= render(@article) %>
 
+<h5><%= link_to "Tell us what you think!", new_article_comment_path(@article) %></h5>
+
 <%= render(@article.top_level_comments) %>
