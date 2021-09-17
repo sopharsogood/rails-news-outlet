@@ -13,7 +13,10 @@ class UsersController < ApplicationController
             render :login
         end
     end
-
+    
+    def show
+        @user = User.find(params[:id])
+    end
 
     def login
         @user = User.new
