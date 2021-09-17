@@ -28,3 +28,10 @@ flame8 = Comment.create(author: seph, article: covid, parent: flame7, content: "
 flame9 = Comment.create(author: goku, article: covid, parent: flame8, content: "yeah u better run")
 Comment.create(author: seph, article: covid, content: "You journalists talk a lot about stopping COVID, but why don't you ever do something about it yourselves??? I see throuhg you")
 
+Commnent.create(author: seph, article: chaucer, content: "Chaucer sucks at writing. I tried reading his book once and he couldn't spell anything right. 0/10")
+multireply = Comment.create(author: clark, article: chaucer, content: "Great article, Peter! I've always loved your work.")
+Comment.create(author: goku, article: chaucer, content: "I saw Chaucer live in concert once, he was okay")
+Comment.create(author: seph, article: chaucer, parent: multireply, content: "Do you guys not have email??")
+Comment.create(author: peter, article: chaucer, parent: multireply, content: "Thanks, Clark!")
+Comment.create(author: goku, article: chaucer, parent: multireply, content: "this is pretty self-congratulatory, not gonna lie<br><br>I mean, I know you're congratulating someone else, but like you both work at this website, same thing")
+
