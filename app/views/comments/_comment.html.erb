@@ -10,7 +10,7 @@
     <p><%= simple_format comment.content %></p>
     <h6>
         <%= link_to "View", article_comment_path(comment.article_id, comment.id) %>
-         - <%= link_to "Reply", new_article_comment_path(comment.article_id) %>
+         - <%= link_to "Reply", article_new_comment_reply_path(comment.article_id, comment.id) %>
         <% if current_user_is?(comment.user) %>
              - <%= link_to "Edit", edit_article_comment_path(comment.article_id, comment.id) %>
             <% if children_to_display.empty? %>
