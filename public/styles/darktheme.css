@@ -55,6 +55,6 @@ p.flash-message {
     color: dodgerblue;
 }
 
-p.highlight {
-    background-color: rgb(145, 104, 0);
+div.highlight {
+    background-color: navy;
 }

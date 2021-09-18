@@ -38,6 +38,6 @@ p.flash-message {
     color: rgb(2, 218, 2);
 }
 
-p.highlight {
-    background-color: goldenrod;
+div.highlight {
+    background-color: skyblue;
 }
