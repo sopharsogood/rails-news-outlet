@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
     before_action :update_last_path_before_login
 
     def new
-        @comment = Comment.new(article: @article, parent: @comment, user: current_user)
+        @parent_comment = Comment.find_by(id: params[:id])
+        @comment = Comment.new(article: @article, parent: @parent_comment, user: current_user)
     end
 
     def create

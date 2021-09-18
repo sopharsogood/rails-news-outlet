@@ -1,10 +1,10 @@
 <h1>New Reply</h1>
 
-<% if @comment.has_parent? %>
+<% if @parent_comment %>
 <p>Replying to:</p>
-    <%= render partial: 'comment',
+    <%= render partial: 'comments/comment',
            locals: {
-               comment: @comment.parent,
+               comment: @parent_comment,
                depth: 0,
                children_to_display: []
             } %>
