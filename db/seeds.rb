@@ -14,10 +14,17 @@ clark = User.create(name: "Clark Kent", password: "abc123", email: "super_good_r
 peter = User.create(name: "Peter Parker", password: "abc123", email: "eight_eyed_camera@newsrail.news", bio: "Peter Parker is an accomplished photographer who has inexplicably never been seen taking photographs. His hobbies include cultivating his pet arachnids that strangely trip geiger counters.")
 goku = User.create(name: "420goku420", password: "abc123", email: "lol@goku.goku", bio: "did i say 420 yet")
 seph = User.create(name: "XxX_sephiroth_XxX", password: "abc123", email: "video@games")
+andrea = User.create(name: "Andrea Sachs", password: "abc123", email: "@newsrail.news", bio: "Andrea Sachs has been an avid journalist her whole life, and was highly recommended by Meryl Streep.")
+trellis = User.create(name: "Mrs. Trellis", password: "abc123", email: "north@wales.com")
+carrie = User.create(name: "Carrie Bradshaw", password: "abc123", email: "nyc@newsrail.news", bio: "Carrie Bradshaw is from New York, but you already knew that.")
+liz = User.create(name: "Elizabeth Turner", password: "abc123", email: "pira@sea.com")
+jacob = User.create(name: "Jacob Bersensen", password: "abc123", email: "iwonthisdomainincombat@fenestre.com")
 
 covid = Article.create(author: clark, title: "COVID Continues to Ravage Country", content: "The death toll from COVID continues to rise as the delta strain spreads across the world (minus new zealand). The strange after-effects on the brains of the survivors are troubling and disturbing, which also means troubling.")
 chaucer = Article.create(author: peter, title: "Chaucer Announces Upcoming New Book", content: "Acclaimed author Chaucer announced in a press conference this Tuesday that he had almost completed work on his newest masterpiece, 'The Canterbury Chronicles', a sequel-slash-reboot of his earlier magnum opus.\r\n\r\nScientists have not determined how he has survived this long, but eight out of ten scientists have already preordered copies of his newest book.")
 kitty = Article.create(author: clark, title: "Kitty Exists Cutely", content: "According to eyewitness reports, a cat was seen crossing N. 37th St. this afternoon at approximately 9 pm. Witnesses described the cat as 'very soft-looking' and 'just the sweetest kitty'.")
+stock = Article.create(author: carrie, title: "Stock market goes up and then down again", content: "The NASDAQ, the NYSE, and the S&P 500 all experienced major fluctuations this week, in the wake of major economic upheaval and me not knowing how exactly those three are distinct.\r\n\r\nProfits +10%\r\nLosses -15%\r\nDividends +20%\r\nEmployment -15%\r\nExecutive Bonuses +50%\r\n\r\nThe results are clear.")
+ipsum = Article.create(author: andrea, title: "Lorem Ipsum", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nDulce et decorum est.")
 
 flame1 = Comment.create(user: goku, article: covid, content: "i looked out my window and i dont see any covids")
 flameresponse = Comment.create(user: clark, article: covid, parent: flame1, content: "Thank you for your comment! COVID molecules are too small to be visible to the naked eye.")
@@ -54,5 +61,12 @@ end
 make_random_children(first_root, 0, goku, kitty)
 make_random_children(second_root, 0, goku, kitty)
 make_random_children(third_root, 0, goku, kitty)
+
+goestoshow = Comment.create(user: trellis, article: stock, content: "Just goes to show these days.")
+Comment.create(user: liz, article: stock, parent: goestoshow, content: "Many a king on a first-class throne\r\nIf he wants to call his crown his own\r\nMust manage somehow to get through\r\nMore dirty work than ever I do")
+
+clearsup1 = Comment.create(user: jacob, article: ipsum, content: "Well.\r\n\r\nThat clears that up, I suppose.\r\nI wonder if my friend cassie speaks fake latin.")
+clearsup2 = Comment.create(user: liz, article: ipsum, parent: clearsup1, content: "She doesn't. Nobody does.")
+clearsup3 = Comment.create(user: jacob, article: ipsum, parent: clearsup2, content: "Too bad.")
 
 puts "Seeding complete!"
