@@ -16,14 +16,14 @@ goku = User.create(name: "420goku420", password: "abc123", email: "lol@goku.goku
 seph = User.create(name: "XxX_sephiroth_XxX", password: "abc123", email: "video@games")
 
 covid = Article.create(author: clark, title: "COVID Continues to Ravage Country", content: "The death toll from COVID continues to rise as the delta strain spreads across the world (minus new zealand). The strange after-effects on the brains of the survivors are troubling and disturbing, which also means troubling.")
-chaucer = Article.create(author: peter, title: "Chaucer Announces Upcoming New Book", content: "Acclaimed author Chaucer announced in a press conference this Tuesday that he had almost completed work on his newest masterpiece, 'The Canterbury Chronicles', a sequel-slash-reboot of his earlier magnum opus.<br><br>Scientists have not determined how he has survived this long, but eight out of ten scientists have already preordered copies of his newest book.")
+chaucer = Article.create(author: peter, title: "Chaucer Announces Upcoming New Book", content: "Acclaimed author Chaucer announced in a press conference this Tuesday that he had almost completed work on his newest masterpiece, 'The Canterbury Chronicles', a sequel-slash-reboot of his earlier magnum opus.\r\n\r\nScientists have not determined how he has survived this long, but eight out of ten scientists have already preordered copies of his newest book.")
 kitty = Article.create(author: clark, title: "Kitty Exists Cutely", content: "According to eyewitness reports, a cat was seen crossing N. 37th St. this afternoon at approximately 9 pm. Witnesses described the cat as 'very soft-looking' and 'just the sweetest kitty'.")
 
 flame1 = Comment.create(user: goku, article: covid, content: "i looked out my window and i dont see any covids")
 flameresponse = Comment.create(user: clark, article: covid, parent: flame1, content: "Thank you for your comment! COVID molecules are too small to be visible to the naked eye.")
 flame2 = Comment.create(user: seph, article: covid, parent: flame1, content: "lmao")
 Comment.create(user: goku, article: covid, parent: flameresponse, content: "i will not fall for your tricks, paperboy")
-flame3 = Comment.create(user: goku, article: covid, parent: flame2, content: "just WHO do u think you are laughing at here?<br><br>i am a VERY IMPORTANT BUSNESMAN who could buy your entire HOUSE if i wanted to so be careful who you cross")
+flame3 = Comment.create(user: goku, article: covid, parent: flame2, content: "just WHO do u think you are laughing at here?\r\n\r\ni am a VERY IMPORTANT BUSNESMAN who could buy your entire HOUSE if i wanted to so be careful who you cross")
 flame4 = Comment.create(user: seph, article: covid, parent: flame3, content: "Nice try, but I am the president of the science company that studies covid, so actually it is you who should fear me")
 flame5 = Comment.create(user: goku, article: covid, parent: flame4, content: "WHAT DID YOU JUST SAY TO ME!? I'LL HAVE YOU KNOW I HAVE OVER FIVE THOUSAND CONFIREMENTS IN THE AFGHANISTAN AND HAVE ALREADY SENT AGENTS TO YOUR HOUSE KIDdo")
 flame6 = Comment.create(user: seph, article: covid, parent: flame5, content: "r u 4 real")
@@ -37,7 +37,7 @@ multireply = Comment.create(user: clark, article: chaucer, content: "Great artic
 Comment.create(user: goku, article: chaucer, content: "I saw Chaucer live in concert once, he was okay")
 Comment.create(user: seph, article: chaucer, parent: multireply, content: "Do you guys not have email??")
 Comment.create(user: peter, article: chaucer, parent: multireply, content: "Thanks, Clark!")
-Comment.create(user: goku, article: chaucer, parent: multireply, content: "this is pretty self-congratulatory, not gonna lie<br><br>I mean, I know you're congratulating someone else, but like you both work at this website, same thing")
+Comment.create(user: goku, article: chaucer, parent: multireply, content: "this is pretty self-congratulatory, not gonna lie\r\n\r\nI mean, I know you're congratulating someone else, but like you both work at this website, same thing")
 
 first_root = Comment.create(user: seph, article: kitty, content: "POST THE KITTY YOU COWARDS")
 second_root = Comment.create(user: seph, article: kitty, content: "did you just forget to post a cat picture or something???")
@@ -46,7 +46,7 @@ third_root = Comment.create(user: seph, article: kitty, content: "I just don't u
 def make_random_children(parent, depth, goku, kitty)
     roll = [0,1,1,2].sample
     roll.times do
-        new_comment = Comment.create(user: goku, article: kitty, parent: parent, content: "THEY CAN'T POST AN ARTICLE LIKE THIS WITHOUT POSTING A CAT PICTURE<br>SPAM SPAM SPAM SPAM SPAM UNTIL YOU GIVE US CATS")
+        new_comment = Comment.create(user: goku, article: kitty, parent: parent, content: "THEY CAN'T POST AN ARTICLE LIKE THIS WITHOUT POSTING A CAT PICTURE\r\nSPAM SPAM SPAM SPAM SPAM UNTIL YOU GIVE US CATS")
         make_random_children(new_comment, depth + 1, goku, kitty) if depth < 17
     end
 end
