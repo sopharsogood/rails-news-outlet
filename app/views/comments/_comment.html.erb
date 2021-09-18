@@ -7,7 +7,7 @@
     <% end %>
 >
     <h5><%= display_user_link(comment.user) %> wrote on <%= display_created_at(comment) %>:</h5>
-    <p><%= comment.content %></p>
+    <p><%= simple_format comment.content %></p>
     <h6>
         <%= link_to "View", article_comment_path(comment.article_id, comment.id) %>
          - <%= link_to "Reply", new_article_comment_path(comment.article_id) %>
