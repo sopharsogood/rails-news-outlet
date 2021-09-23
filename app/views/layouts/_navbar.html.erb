@@ -4,6 +4,9 @@
         <li><%= link_to "Unread Articles", unread_articles_path %></li>
         <li><%= display_user_link(current_user) %></li>
         <li><%= link_to "Log Out", logout_path, method: "POST" %></li>
+        <% if current_user_is_staff? %>
+            <li><%= link_to "Write New Article", new_article_path %>
+        <% end %>
     <% else %>
         <li><%= link_to "Log In", login_path %></li>
         <li><%= link_to "Sign Up", new_user_path %></li>
