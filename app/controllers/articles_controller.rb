@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
 
     before_action :update_last_path_before_login
 
+    before_action :redirect_if_invalid_article_route, only: [:show]
+
     before_action :read_if_unread, only: [:show]
 
     def new
@@ -42,7 +44,6 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        @article = Article.find(params[:id])
     end
 
     def index
@@ -65,6 +66,14 @@ class ArticlesController < ApplicationController
 
     def edit_article_params
         params.require(:article).permit(:title, :content)
+    end
+
+    def redirect_if_invalid_article_route
+        @article = Article.find_by(id: params[:id])
+        unless @article
+            flash[:error] = "No such article found."
+            redirect_to articles_path
+        end
     end
 
     def redirect_if_not_staff_or_wrong_staff
