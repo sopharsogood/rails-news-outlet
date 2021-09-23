@@ -24,4 +24,12 @@ class User < ApplicationRecord
     def unique_articles_commented
         self.articles.uniq
     end
+
+    def recent_unread_articles
+        if self.read_article_ids == []
+            Article.recent
+        else
+            Article.recent.where('id not in (?)', self.read_article_ids)
+        end
+    end
 end

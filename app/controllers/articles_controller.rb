@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
     end
 
     def unread
-        @articles = Article.recent_unread_by(current_user)
+        @articles = current_user.recent_unread_articles
     end
 
     def show
