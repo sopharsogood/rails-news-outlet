@@ -11,7 +11,7 @@ class Article < ApplicationRecord
     has_many :readings, foreign_key: :read_article_id
     has_many :readers, through: :readings
 
-    scope :recent, ->{ where('created_at >= ?', 1.week.ago) }
+    scope :recent, ->{ where('created_at >= ?', 1.week.ago).order(created_at: :desc) }
 
     validates :title, presence: true
     validates :content, presence: true
