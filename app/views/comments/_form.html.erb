@@ -1,6 +1,6 @@
 <%= render partial: 'application/errors', locals: { form_subject: comment } %>
 
-<%= form_for comment, method: form_method, url: comment_form_submission_path(comment) do |f| %>
+<%= form_for comment, url: comment_form_submission_path(comment) do |f| %>
     <p><%= f.text_area :content %></p>
     <%= f.hidden_field :parent_id %>
     <%= f.hidden_field :article_id %>
