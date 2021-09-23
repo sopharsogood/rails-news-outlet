@@ -18,6 +18,8 @@
   </head>
 
   <body>
+    <%= render partial: 'layouts/navbar' %>
+    
     <% if flash[:message] %>
       <p class="flash flash-message"><%= flash[:message] %></p>
     <% end %>
