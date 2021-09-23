@@ -11,6 +11,8 @@ class User < ApplicationRecord
     has_many :written_articles, class_name: "Article", foreign_key: "author_id"
     has_many :comments
     has_many :articles, through: :comments
+    has_many :readings
+    has_many :read_articles, through: :readings
 
     has_secure_password
     validates :email, presence: true, uniqueness: true

@@ -8,6 +8,8 @@ class Article < ApplicationRecord
     belongs_to :author, class_name: "User"
     has_many :comments
     has_many :users, through: :comments
+    has_many :readings
+    has_many :readers, through: :readings
 
     validates :title, presence: true
     validates :content, presence: true
