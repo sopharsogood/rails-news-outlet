@@ -6,4 +6,7 @@ class Reading < ApplicationRecord
 
     belongs_to :reader, class_name: "User"
     belongs_to :read_article, class_name: "Article"
+
+    validates :reader, presence: true
+    validates :read_article, presence: true
 end
