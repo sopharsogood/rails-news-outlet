@@ -1,6 +1,7 @@
 <ul id="navbar">
     <li><%= link_to "Latest News", articles_path %></li>
     <% if logged_in? %>
+        <li><%= link_to "Unread Articles", unread_articles_path %></li>
         <li><%= display_user_link(current_user) %></li>
         <li><%= link_to "Log Out", logout_path, method: "POST" %></li>
     <% else %>
