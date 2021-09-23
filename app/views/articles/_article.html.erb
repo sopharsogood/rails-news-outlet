@@ -1,4 +1,10 @@
-<h1><%= article.title %></h1>
+<h1>
+<% if actual_article_page ||= false %>
+    <%= article.title %>
+<% else %>
+    <%= display_article_link(article) %>
+<% end %>
+</h1>
 <h3><%= author_byline(article) %></h3>
 
 <p><%= simple_format article.content %></p>

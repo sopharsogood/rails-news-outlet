@@ -1,5 +1,7 @@
-<%= render(@article) %>
+<%= render partial: 'article', locals: { article: @article, actual_article_page: true } %>
 
+<br>
 <h5><%= link_to "Tell us what you think!", new_article_comment_path(@article) %></h5>
+<br>
 
 <%= render(@article.top_level_comments) %>
