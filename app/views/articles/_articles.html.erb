@@ -1,0 +1,7 @@
+<% articles.each_with_index do |article, index| %>
+    <h<%= h_tag_number(index) %>>
+        <%= display_article_link(article) %>
+    </h<%= h_tag_number(index) %>>
+    <%= author_byline(article) %>
+    <br><br>
+<% end %>
