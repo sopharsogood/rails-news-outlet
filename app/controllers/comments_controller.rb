@@ -89,9 +89,4 @@ class CommentsController < ApplicationController
         end
     end
 
-    def read_if_unread
-        if logged_in? && @article.exists?
-            Reading.find_or_create_by(reader: current_user, read_article: @article)
-        end
-    end
 end

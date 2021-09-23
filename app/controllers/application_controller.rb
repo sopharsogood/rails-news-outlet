@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
         session[:last_path_before_login] = request.path
     end
  
+    def read_if_unread
+        if logged_in? && !!@article
+            Reading.find_or_create_by(reader: current_user, read_article: @article)
+        end
+    end
+    
 end

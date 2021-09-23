@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
     skip_before_action :redirect_if_not_logged_in, only: [:show, :index]
 
     before_action :redirect_if_not_staff_or_wrong_staff
-    skip_before_action :redirect_if_not_staff_or_wrong_staff, only: [:show, :index]
+    skip_before_action :redirect_if_not_staff_or_wrong_staff, only: [:show, :index, :unread]
 
     before_action :update_last_path_before_login
 
@@ -37,6 +37,10 @@ class ArticlesController < ApplicationController
         end
     end
 
+    def unread
+        @articles = Article.recent_unread_by(current_user)
+    end
+
     def show
         @article = Article.find(params[:id])
     end
@@ -51,10 +55,6 @@ class ArticlesController < ApplicationController
         @article.destroy
         flash[:message] = "Article deleted forever!"
         redirect_to articles_path
-    end
-
-    def unread
-        @articles = Article.recent_unread_by(current_user)
     end
 
     private
@@ -81,14 +81,5 @@ class ArticlesController < ApplicationController
             redirect_to @article
         end
     end
-
-    private
-
-    def read_if_unread
-        if logged_in? && @article.exists?
-            Reading.find_or_create_by(reader: current_user, read_article: @article)
-        end
-    end
-
 
 end

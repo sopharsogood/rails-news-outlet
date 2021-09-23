@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/articles/unread', to: 'articles#unread', as: 'unread_articles'
   resources :articles do
     resources :comments
     get '/comments/:id/new', to: 'comments#new', as: 'new_comment_reply'
@@ -11,6 +12,4 @@ Rails.application.routes.draw do
   get '/login', to: 'users#login'
   post '/login', to: 'users#signin'
   post '/logout', to: 'users#logout'
-
-  get '/articles/unread', to: 'articles#unread', as: 'unread_articles'
 end
