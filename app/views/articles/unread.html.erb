@@ -1,0 +1,7 @@
+<h1>Recent Unread Articles for <%= display_user_link(current_user) %></h1>
+
+<% if @articles.empty? %>
+    <h4>You're all caught up! You've read all articles posted in the last week!</h4>
+<% else %>
+    <%= render partial: 'articles', locals: { articles: @articles } %>
+<% end %>
