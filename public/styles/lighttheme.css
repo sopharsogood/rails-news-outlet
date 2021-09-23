@@ -41,3 +41,15 @@ p.flash-message {
 div.highlight {
     background-color: rgb(154, 226, 255);
 }
+
+ul#navbar {
+    background-color: #999;
+}
+
+ul#navbar li a {
+    color: black
+}
+
+ul#navbar li a:hover {
+    background-color: #777;
+}
