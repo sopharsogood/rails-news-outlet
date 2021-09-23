@@ -32,7 +32,9 @@ module CommentsHelper
     end
 
     def comment_form_submission_path(comment)
-        if comment.has_parent?
+        if comment.id?
+            article_comment_path(comment.article, comment)
+        elsif comment.has_parent?
             article_new_comment_reply_path(comment.article, comment.parent)
         else
             article_comments_path(comment.article)
