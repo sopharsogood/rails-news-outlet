@@ -53,6 +53,10 @@ class ArticlesController < ApplicationController
         redirect_to articles_path
     end
 
+    def unread
+        @articles = Article.recent_unread_by(current_user)
+    end
+
     private
 
     def new_article_params
