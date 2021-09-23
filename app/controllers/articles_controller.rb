@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
 
     before_action :update_last_path_before_login
 
+    before_action :read_if_unread, only: [:show]
+
     def new
         @article = Article.new(author: current_user)
     end
@@ -76,6 +78,13 @@ class ArticlesController < ApplicationController
         end
     end
 
+    private
+
+    def read_if_unread
+        if logged_in? && @article.exists?
+            Reading.find_or_create_by(reader: current_user, read_article: @article)
+        end
+    end
 
 
 end
