@@ -35,7 +35,7 @@ module CommentsHelper
         if comment.has_parent?
             article_new_comment_reply_path(comment.article, comment.parent)
         else
-            new_article_comment_path(comment.article)
+            article_comments_path(comment.article)
         end
     end
 
