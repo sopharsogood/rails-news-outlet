@@ -45,6 +45,7 @@ class ArticlesController < ApplicationController
 
     def destroy
         @article.comments.destroy_all
+        @article.readings.destroy_all
         @article.destroy
         flash[:message] = "Article deleted forever!"
         redirect_to articles_path
