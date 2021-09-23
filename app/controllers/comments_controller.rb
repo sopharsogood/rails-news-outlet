@@ -11,6 +11,8 @@ class CommentsController < ApplicationController
 
     before_action :update_last_path_before_login
 
+    before_action :read_if_unread
+
     def new
         @parent_comment = Comment.find_by(id: params[:id])
         @comment = Comment.new(article: @article, parent: @parent_comment, user: current_user)
@@ -84,6 +86,12 @@ class CommentsController < ApplicationController
         unless current_user_is?(@comment.user)
             flash[:error] = "Only the original poster of a comment can edit or delete it."
             redirect_to article_comment_path(@article, @comment)
+        end
+    end
+
+    def read_if_unread
+        if logged_in? && @article.exists?
+            Reading.find_or_create_by(reader: current_user, read_article: @article)
         end
     end
 end
