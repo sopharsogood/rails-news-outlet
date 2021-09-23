@@ -8,8 +8,10 @@ class Article < ApplicationRecord
     belongs_to :author, class_name: "User"
     has_many :comments
     has_many :users, through: :comments
-    has_many :readings
+    has_many :readings, foreign_key: :read_article_id
     has_many :readers, through: :readings
+
+    scope :recent_unread_by, ->(reader) { where('created_at >= ?', 1.week.ago).where('id not in (?)', reader.read_article_ids) }
 
     validates :title, presence: true
     validates :content, presence: true
