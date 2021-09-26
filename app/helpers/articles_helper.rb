@@ -12,7 +12,7 @@ module ArticlesHelper
     end
 
     def display_article_link(article)
-        link_to article.title, article
+        link_to_unless_current article.title, article
     end
         
 end
