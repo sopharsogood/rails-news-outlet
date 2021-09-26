@@ -15,27 +15,23 @@ module ArticlesHelper
         link_to_unless_current article.title, article
     end
 
-    def display_with_footnote_links(content)
-        # /\[\[([^\]]+)\]\]/ matches anything [[enclosed in double brackets]]
-        main_article = content.gsub(/\[\[([^\]]+)\]\]/).with_index do |footnote, index|
-            i = index+1
-            "<sup id='reference-#{i}'><a href='#footnote-#{i}'>[#{i}]</a></sup>"
-        end
-        main_article
-    end
-
-    def display_footnotes(content)
+    def display_with_footnotes(content)
         footnotes = ""
         # /\[\[([^\]]+)\]\]/ matches anything [[enclosed in double brackets]]
         # and saves the contents of the double brackets, but not the double brackets, in $1
-        content.scan(/\[\[([^\]]+)\]\]/).with_index do |footnote, index|
+        main_article = content.gsub(/\[\[([^\]]+)\]\]/).with_index do |footnote, index|
             i = index+1
-            footnotes << "<p class='footnote' id='footnote-#{i}>"
+            footnotes << "<p class='footnote' id='footnote-#{i}'>"
             footnotes << "<sup><a href='#reference-#{i}'>[#{i}]</a></sup>"
             footnotes << $1
             footnotes << "</p>"
+            "<sup id='reference-#{i}'><a href='#footnote-#{i}'>[#{i}]</a></sup>"
         end
-        footnotes
+        if footnotes.empty?
+            main_article
+        else
+            main_article + "\r\n\r\n" + footnotes
+        end
     end
- 
+        
 end
