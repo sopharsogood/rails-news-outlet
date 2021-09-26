@@ -2,7 +2,7 @@
 
 <h3><%= author_byline(article) %></h3>
 
-<p><%= simple_format article.content %></p>
+<p><%= simple_format display_with_footnotes(article.content) %></p>
 
 <p><i><%= article.author_bio %></i></p>
 <% if current_user_is_staff? && current_user_is?(article.author) %>
