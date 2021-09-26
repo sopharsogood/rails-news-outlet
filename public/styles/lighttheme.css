@@ -53,3 +53,7 @@ ul#navbar li a {
 ul#navbar li a:hover {
     background-color: #777;
 }
+
+* :target {
+    background-color: gold;
+}
