@@ -55,5 +55,5 @@ ul#navbar li a:hover {
 }
 
 * :target {
-    background-color: gold;
+    background-color: rgb(250, 227, 99);
 }

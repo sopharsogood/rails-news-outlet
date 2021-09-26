@@ -70,3 +70,7 @@ ul#navbar li a {
 ul#navbar li a:hover {
     background-color: #444;
 }
+
+* :target {
+    background-color: rgb(99, 3, 168);
+}
